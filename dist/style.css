@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: Georgia;
+  font-size:15px;
+}
+
+main {
+  margin: auto;
+  background-color: lightyellow;
+  color: green;
+}
+
+.future-weather {
+  background-color: lightgreen;
+}
+
