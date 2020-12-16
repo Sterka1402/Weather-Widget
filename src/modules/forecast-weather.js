@@ -6,8 +6,8 @@ function forecastWeath(weather) {
       const forecastWeath = document.createElement('div');  
       forecastWeath.innerHTML = `
         <div>${el.dt_txt}</div>
-        <div><img src='../img/${el.weather[0].icon}.png'></img></div>
-        <div>${Math.floor(el.main.temp * 10) / 10} °C </div>
+        <div><img src='./img/${el.weather[0].icon}.png'></img></div>
+        <div>${Math.floor(el.main.temp)} °C </div>
       `;
       container.append(forecastWeath);
     }
