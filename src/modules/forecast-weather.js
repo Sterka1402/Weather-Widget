@@ -1,14 +1,17 @@
 function forecastWeath(weather) {
-  const forecastWeath = document.querySelector('.forecast-weather');
-  if (!forecastWeath) return;
-  const day =  
-  weather.weather.forEach(el =>
-  forecastWeath.innerHTML = `
-    <div>${(new Date().toLocaleDateString())}</div>
-    <div><img src='../img/${el.icon}.png'></img></div>
-    <div>${weather.main.temp} <sup>o</sup>C </div>
-  `);
- 
-  // <div>${day.toLocaleDateString()}</div>
-};
+  const container = document.querySelector('.forecast-weather');
+  if (!container) return;
+  weather.list.forEach((el) => {
+    if (el.dt_txt.slice(11,13) === '12') {
+      const forecastWeath = document.createElement('div');  
+      forecastWeath.innerHTML = `
+        <div>${el.dt_txt}</div>
+        <div><img src='../img/${el.weather[0].icon}.png'></img></div>
+        <div>${Math.floor(el.main.temp * 10) / 10} °C </div>
+      `;
+      container.append(forecastWeath);
+    }
+  });
+
+}
 export default forecastWeath;

@@ -27,11 +27,19 @@ p {
 }
 
 .forecast-weather {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr
+  /* padding-top: 10px; */
   background-color: lightgreen;
+  margin-bottom: 0;
+ 
 }
 .forecast-weather div {
-  width:30%
+  width:100%;
+  display:flex;
+  padding:10px 20px;
+ 
+  justify-content: center;
 }
-
+.forecast-weather > div {
+  
+  border-bottom: 1px solid gray;
+} 

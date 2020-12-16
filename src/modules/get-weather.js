@@ -1,4 +1,3 @@
-// import forecastWeath from "./forecast-weather";
 import renderWeather from "./render-weather";
 function getWeather() {
   const getHttp = (url) => new Promise((resolve, reject) => {
@@ -13,8 +12,6 @@ function getWeather() {
         const result = xhr.response;
         const weather = JSON.parse(result);
         console.log(weather);
-        
-        // localStorage.setItem('weather', JSON.stringify(result));
         resolve(weather);
       }
     };
@@ -24,7 +21,7 @@ function getWeather() {
     };
   });
 
-  const getJSON = getHttp('https://api.openweathermap.org/data/2.5/weather?q=Mogilev,by&units=metric&appid=4bed3ee902539e73a03dc1243f44bff9');
+  const getJSON = getHttp('https://api.openweathermap.org/data/2.5/forecast?q=Mogilev,by&units=metric&appid=4bed3ee902539e73a03dc1243f44bff9');
   getJSON
     .then((weather) =>  renderWeather(weather))
     .catch((err) => console.log(err))
