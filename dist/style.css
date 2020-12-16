@@ -8,16 +8,30 @@
 
 body {
   font-family: Georgia;
-  font-size:15px;
+  font-size:45px;
 }
 
-main {
+.current-weather {
   margin: auto;
   background-color: lightyellow;
   color: green;
+  text-align: center;
+  padding: 50px;
+}
+img{
+  width:10%
+}
+p {
+  font-size:25px;
+  padding: 20px;
 }
 
-.future-weather {
+.forecast-weather {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr
   background-color: lightgreen;
+}
+.forecast-weather div {
+  width:30%
 }
 
