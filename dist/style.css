@@ -12,7 +12,7 @@ body {
 }
 .size{
   margin:0 auto;
-  width: 600px;
+  width: 500px;
 }
 
 .current-weather {
@@ -20,14 +20,17 @@ body {
   background-color: lightyellow;
   color: green;
   text-align: center;
-  padding: 50px;
+  padding: 10px;
+}
+.city{
+  text-align: start;
 }
 img{
   width:70px;
 }
 p {
   font-size:25px;
-  padding: 20px;
+  padding-top: 10px;
 }
 
 .forecast-weather {
@@ -35,8 +38,14 @@ p {
 }
 .forecast-weather div {
   display:flex;
-  padding:10px 5px;justify-content: space-around;
+  align-items: center;
+  justify-content: space-around;
+  font-size:20px;
 }
 .forecast-weather > div {
   border-bottom: 1px solid gray;
 } 
+.week {
+  width: 32%;
+  
+}
