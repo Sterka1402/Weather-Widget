@@ -1,4 +1,5 @@
-import renderWeather from "./render-weather";
+import renderWeather from './render-today';
+
 function getWeather() {
   const getHttp = (url) => new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -23,10 +24,8 @@ function getWeather() {
 
   const getJSON = getHttp('https://api.openweathermap.org/data/2.5/forecast?q=Mogilev,by&units=metric&appid=4bed3ee902539e73a03dc1243f44bff9');
   getJSON
-    .then((weather) =>  renderWeather(weather))
+    .then((weather) => renderWeather(weather))
     .catch((err) => console.log(err))
     .finally(() => console.log('Promise is fullfiled'));
-
- 
-};
-  export default getWeather
+}
+export default getWeather;

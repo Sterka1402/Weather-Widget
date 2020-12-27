@@ -1,8 +1,9 @@
-import forecastWeath from "./render-forecast";
+import forecastWeath from './render-forecast';
+
 function renderWeather(weather) {
   const currWeath = document.querySelector('.current-weather');
   if (!currWeath) return;
-  const icon =  weather.list[0].weather[0].icon;
+  const { icon } = weather.list[0].weather[0];
   currWeath.innerHTML = `
   <p class='city'>${weather.city.name}, ${weather.city.country}.</p> 
   <img src='./img/${icon}.png'></img>
@@ -11,8 +12,7 @@ function renderWeather(weather) {
   <p>Feels like ${Math.floor(weather.list[0].main.feels_like)} °C<p>
   <p> Wind now is ${Math.floor(weather.list[0].wind.speed)} m/s.</p>
   `;
-    forecastWeath(weather);
-};
-
+  forecastWeath(weather);
+}
 
 export default renderWeather;
