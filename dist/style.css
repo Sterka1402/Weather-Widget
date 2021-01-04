@@ -8,16 +8,44 @@
 
 body {
   font-family: Georgia;
-  font-size:15px;
+  font-size:25px;  
+}
+.size{
+  margin:0 auto;
+  width: 500px;
 }
 
-main {
+.current-weather {
   margin: auto;
   background-color: lightyellow;
   color: green;
+  text-align: center;
+  padding: 10px;
+}
+.city{
+  text-align: start;
+}
+img{
+  width:70px;
+}
+p {
+  font-size:25px;
+  padding-top: 10px;
 }
 
-.future-weather {
+.forecast-weather {
   background-color: lightgreen;
 }
-
+.forecast-weather div {
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size:20px;
+}
+.forecast-weather > div {
+  border-bottom: 1px solid gray;
+} 
+.week {
+  width: 35%;
+  
+}

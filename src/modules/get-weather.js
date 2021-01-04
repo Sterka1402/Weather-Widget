@@ -1,24 +1,32 @@
-const getHttp = (url) => new Promise((resolve, reject) => {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-  xhr.send();
+import renderForecast from './render-forecast';
+import renderToday from './render-today';
 
-  xhr.onload = () => {
-    if (xhr.status !== 200) {
-      reject(new Error('Error occured'));
-    } else {
-      const result = xhr.response;
-      resolve(result);
-    }
-  };
+function getWeather(weatherUrl) {
+  const getHttp = (url) => new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.send();
 
-  xhr.onerror = () => {
-    reject(new Error('Network error'));
-  };
-});
+    xhr.onload = () => {
+      if (xhr.status !== 200) {
+        reject(new Error('Error occured'));
+      } else {
+        const result = xhr.response;
+        const weather = JSON.parse(result);
+        resolve(weather);
+      }
+    };
 
-const getJSON = getHttp('https://api.openweathermap.org/data/2.5/weather?q=Mogilev,by&appid=4bed3ee902539e73a03dc1243f44bff9');
-getJSON
-  .then((result) => console.log(JSON.parse(result)))
-  .catch((err) => console.log(err))
-  .finally(() => console.log('Promise is fullfiled'));
+    xhr.onerror = () => {
+      reject(new Error('Network error'));
+    };
+  });
+
+  const getJSON = getHttp(weatherUrl);
+  getJSON
+    .then((weather) => renderToday(weather))
+    .then((weather) => renderForecast(weather))
+    .catch((err) => console.log(err))
+    .finally(() => console.log('Promise is fullfiled'));
+}
+export default getWeather;
