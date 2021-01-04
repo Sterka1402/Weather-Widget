@@ -6,7 +6,7 @@ function getWeather(weatherUrl) {
     .then((response) => response.json())
     .then((weather) => renderToday(weather))
     .then((weather) => renderForecast(weather))
-    .catch(() => console.log(new Error('Sorry for unconvenience. Something happened wrong')));
+    .catch(() => console.log(new Error('Sorry for inconvenience. Something went wrong')));
 }
 
 export default getWeather;

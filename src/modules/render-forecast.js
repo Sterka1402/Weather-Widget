@@ -7,8 +7,12 @@ function renderForecast(weather) {
     const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const weekDay = day.getDay();
     const currentWeekDay = week[weekDay];
-    const currentDayMonth = day.toDateString().slice(4, 10);
 
+    const options = {
+      month: 'short',
+      day: 'numeric',
+    };
+    const currentDayMonth = day.toLocaleString('en', options);
     const forecastWeath = document.createElement('div');
     forecastWeath.innerHTML = `
     <div class = 'week'>${currentWeekDay}, ${currentDayMonth} </div> 

@@ -8,7 +8,7 @@ async function getWeather(weatherUrl) {
     renderToday(weather);
     renderForecast(weather);
   } catch (err) {
-    console.log(new Error('Sorry for unconvenience. Something happened wrong'));
+    console.log(new Error('Sorry for inconvenience. Something went wrong'));
   }
 }
 
