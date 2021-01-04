@@ -1,6 +1,7 @@
-import renderWeather from './render-today';
+import renderForecast from './render-forecast';
+import renderToday from './render-today';
 
-function getWeather() {
+function getWeather(weatherUrl) {
   const getHttp = (url) => new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -12,7 +13,6 @@ function getWeather() {
       } else {
         const result = xhr.response;
         const weather = JSON.parse(result);
-        console.log(weather);
         resolve(weather);
       }
     };
@@ -22,9 +22,10 @@ function getWeather() {
     };
   });
 
-  const getJSON = getHttp('https://api.openweathermap.org/data/2.5/forecast?q=Mogilev,by&units=metric&appid=4bed3ee902539e73a03dc1243f44bff9');
+  const getJSON = getHttp(weatherUrl);
   getJSON
-    .then((weather) => renderWeather(weather))
+    .then((weather) => renderToday(weather))
+    .then((weather) => renderForecast(weather))
     .catch((err) => console.log(err))
     .finally(() => console.log('Promise is fullfiled'));
 }

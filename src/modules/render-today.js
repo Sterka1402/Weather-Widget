@@ -1,6 +1,4 @@
-import forecastWeath from './render-forecast';
-
-function renderWeather(weather) {
+function renderToday(weather) {
   const currWeath = document.querySelector('.current-weather');
   if (!currWeath) return;
   const { icon } = weather.list[0].weather[0];
@@ -12,7 +10,6 @@ function renderWeather(weather) {
   <p>Feels like ${Math.floor(weather.list[0].main.feels_like)} °C<p>
   <p> Wind now is ${Math.floor(weather.list[0].wind.speed)} m/s.</p>
   `;
-  forecastWeath(weather);
 }
 
-export default renderWeather;
+export default renderToday;
